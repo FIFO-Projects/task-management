@@ -1,0 +1,109 @@
+.tenant-container {
+  padding: 20px;
+}
+
+.tenant-title {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.tenant-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.tenant-button-group {
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  gap: 10px;
+}
+
+.tenant-btn {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  transition: background-color 0.2s ease;
+}
+
+.tenant-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.tenant-form {
+  margin-top: 50px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-submit-btn:hover {
+  background-color: #45a049;
+}
+
+.tenant-table-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.tenant-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tenant-table th,
+.tenant-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tenant-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}

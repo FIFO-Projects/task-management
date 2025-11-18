@@ -1,7 +1,7 @@
 // src/components/TenantManagement.jsx
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./TenantManagement.css";
+import api from "../../api";
 
 const TenantManagement = () => {
   const [view, setView] = useState(""); // "create", "update", "delete", "list"
@@ -29,7 +29,7 @@ const TenantManagement = () => {
 
   const fetchTenants = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/tenants", {
+      const res = await api.get("/tenants", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTenants(res.data);
@@ -40,7 +40,7 @@ const TenantManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/users", {
+      const res = await api.get("/users", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(res.data);
@@ -57,8 +57,8 @@ const TenantManagement = () => {
       if (useExistingAdmin) {
         // just link to an existing admin user
         if (!newTenantAdminId) return alert("Select an admin user");
-        await axios.post(
-          "http://localhost:8080/api/tenants",
+        await api.post(
+          "/tenants",
           {
             name: newTenantName,
             tenantAdminId: newTenantAdminId,
@@ -71,8 +71,8 @@ const TenantManagement = () => {
         if (!newAdminUsername || !newAdminPassword)
           return alert("Enter new admin username and password");
 
-        await axios.post(
-          "http://localhost:8080/api/tenants/create-with-admin",
+        await api.post(
+          "/tenants/create-with-admin",
           {
             tenantName: newTenantName,
             adminUsername: newAdminUsername,
@@ -107,8 +107,8 @@ const TenantManagement = () => {
 
   const handleUpdateTenant = async () => {
     if (!selectedTenant) return alert("Select a tenant first");
-    await axios.put(
-      `http://localhost:8080/api/tenants/${selectedTenant.id}`,
+    await api.put(
+      `/tenants/${selectedTenant.id}`,
       {
         name: updateTenantName,
         tenantAdminId: updateTenantAdminId,
@@ -125,7 +125,7 @@ const TenantManagement = () => {
   // DELETE
   const handleDeleteTenant = async (id) => {
     if (window.confirm("Are you sure to delete this tenant?")) {
-      await axios.delete(`http://localhost:8080/api/tenants/${id}`, {
+      await api.delete(`/tenants/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchTenants();

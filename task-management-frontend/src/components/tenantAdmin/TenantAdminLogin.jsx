@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import api from "../../api";
 
 const TenantAdminLogin = () => {
   const [username, setUsername] = useState("");
@@ -14,7 +14,7 @@ const TenantAdminLogin = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/login", {
+      const response = await api.post("/auth/login", {
         username,
         password
       });
